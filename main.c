@@ -11,6 +11,7 @@ int main(){
 
 	int destaque = 1;
 	int linha, coluna, meiolinha,meiocoluna,iniciolinha,iniciocoluna;
+	char temp[20];
 
 	initscr();
 	getmaxyx(stdscr,linha,coluna);
@@ -31,22 +32,28 @@ int main(){
 	box(win, 0, 0);
 	mvwprintw(win,1,(iniciocoluna-(strlen("Deu certo!"))/2), "Deu certo!");
 
-	draw_button(win,4,iniciocoluna-(strlen("1. Step")/2),"1. Step", (destaque == 1));
-	draw_button(win,5,iniciocoluna-(strlen("2. Show data memory")/2),"2. Show data memory",(destaque == 2));
-	draw_button(win,6,iniciocoluna-(strlen("3. Show registers")/2),"3. Show Registers",(destaque == 3));
-	draw_button(win,7,iniciocoluna-(strlen("4. Mostrar simais de controle")/2),"4. Mostrar sinais de controle", (destaque == 4));
-	draw_button(win,8,iniciocoluna-(strlen("5. Show all instructions")/2),"5. Show all instructions", (destaque == 5));
-	draw_button(win,9,iniciocoluna-(strlen("6. Show instruction to run")/2),"6. Show instruction to run", (destaque == 6));
-	draw_button(win,10,iniciocoluna-(strlen("7. Make .asm")/2),"7. Make .asm", (destaque == 7));
-	draw_button(win,11,iniciocoluna-(strlen("8. Load data memory")/2),"8. Load data memory", (destaque == 8));
-	draw_button(win,12,iniciocoluna-(strlen("9. Store data memory")/2),"9. Store data memory", (destaque == 9));
-	draw_button(win,13,iniciocoluna-(strlen("10. Load instruction memory")/2),"10. Load instruction memory", (destaque == 10));
-	draw_button(win,14,iniciocoluna-(strlen("11. Run")/2),"11. Run", (destaque == 11));
-	draw_button(win,15,iniciocoluna-(strlen("12. Back")/2),"12. Back", (destaque == 12));
-	draw_button(win,16,iniciocoluna-(strlen("13. Exit")/2),"13. Exit", (destaque == 13));
-
+	draw_button(win,4,2,"1", (destaque == 1));
+	draw_button(win,4,5,"2",(destaque == 2));
+	draw_button(win,4,8,"3", (destaque == 2));
+	draw_button(win,4,11,"+", (destaque == 2));
+	draw_button(win,5,2,"4",(destaque == 2));
+	draw_button(win,5,5,"5", (destaque == 2));
+	draw_button(win,5,8,"6",(destaque == 2));
+	draw_button(win,5,11,"-",(destaque == 2));
+	draw_button(win,6,2,"7", (destaque == 2));
+	draw_button(win,6,5,"8",(destaque == 2));
+	draw_button(win,6,8,"9", (destaque == 2));
+	draw_button(win,6,11,"X", (destaque == 2));
+	draw_button(win,7,2,"C",(destaque == 2));
+	draw_button(win,7,5,"0",(destaque == 2));
+	draw_button(win,7,8,"=",(destaque == 2));
+	draw_button(win,7,11,"/",(destaque == 2)); 
 	wrefresh(win);
-	//system("clear");
+
+	setbuf(stdin, NULL);
+	mvwscanw(win, 16, iniciocoluna, "%s", temp);
+	wrefresh(win);
+
 	endwin();
 
 	return 0;
